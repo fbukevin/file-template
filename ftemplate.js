@@ -24,11 +24,11 @@ program
 
 /* create command parser */
 var parser = program.parse(process.argv);
-
+var filename;
 /* check for the command line arguments */
 if (parser.args.length === 0) 
 	parser.outputHelp();
-else if(parser.args[0]) 	
+else if((filename = parser.args[0]))
 {
 	/*
 	//DEBUG
@@ -36,7 +36,6 @@ else if(parser.args[0])
 	console.log('\n======\n');
 	parser.args.forEach(function(str){ console.log(str);});		// exclude "node" and "filename"
 	*/	
-	var filename = parser.args[0];
 	if(!match(filename, '*.*'))
 		program.outputHelp();
 
