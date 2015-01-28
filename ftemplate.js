@@ -37,7 +37,10 @@ else if((filename = parser.args[0]))
 	parser.args.forEach(function(str){ console.log(str);});		// exclude "node" and "filename"
 	*/	
 	if(!match(filename, '*.*'))
+	{
 		program.outputHelp();
+		process.exit();
+	}
 
 }
 
