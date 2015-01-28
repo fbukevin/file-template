@@ -1,20 +1,19 @@
-
 {
-	"name": "file-template",
-	"descript": "Generate a template with file type.",
-	"versoin" : "0.0.1",
-	"keywords": ["file-template", "template"],
-	"author": {
-		"name" : "Veck Hsiao",
-		"email" : "fbukevin@gmail.com",
-		"url" : ""
-	},
-	"main": "ftemplate",   
-  	"preferGlobal": "true",
-  	"bin": {
-         "ftemplate" : "ftemplate.js"
- 	},
-	"repository": {
+    "name": "file-template",
+    "descript": "Generate a template with file type.",
+    "versoin" : "0.0.1",
+    "keywords": ["file-template", "template"],
+    "author": {
+        "name" : "Veck Hsiao",
+        "email" : "fbukevin@gmail.com",
+        "url" : ""
+    },
+    "main": "ftemplate",   
+    "preferGlobal": "true",
+    "bin": {
+        "ftemplate" : "ftemplate.js"
+    },
+    "repository": {
         "type": "git",
         "url": "https://github.com/fbukevin/file-template.git"
     },
@@ -24,13 +23,10 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },    
-    //"license": "Mozilla",
     "dependencies": {
         "commander": "~2.1.0",
-	"minimatch": "~2.0.1",
-	"prompt": "~0.2.12",
-        "colors": "~0.6.2",
-        //"restler": "~3.1.0",
-        //"q": "~1.0.0"        
+        "minimatch": "~2.0.1",
+        "prompt": "~0.2.12",
+        "colors": "~0.6.2"
     }
 }
