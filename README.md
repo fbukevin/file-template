@@ -54,16 +54,18 @@ Current support programming languages:
 	</html>
 	```
 
-* Create a C file: `ftemplate hello.c`
+* Create a Java file: `ftemplate hello.java`
 
-	```c
-	#include<stdio.h>
-	#includ<stdlib.h>
+	```java
+	import java.lang.*;
 	
-	int main(int argc, char* argv[])
-	{
-		printf("\n");
-		return 0;
+	class hello{
+		public static void main(String[] args){
+		
+			System.out.println("");
+			
+			return 0;
+		}
 	}
 	```
 
