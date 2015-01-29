@@ -29,7 +29,10 @@ var parser = program.parse(process.argv);
 var filename;
 /* check for the command line arguments */
 if (parser.args.length === 0) 
+{
 	parser.outputHelp();
+	process.exit();
+}
 else if((filename = parser.args[0]))
 {
 	/*
