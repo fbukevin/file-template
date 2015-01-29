@@ -41,6 +41,8 @@ else if((filename = parser.args[0]))
 	console.log('\n======\n');
 	parser.args.forEach(function(str){ console.log(str);});		// exclude "node" and "filename"
 	*/	
+
+	/* check format */
 	if(!match(filename, '*.*'))
 	{
 		program.outputHelp();
@@ -50,8 +52,43 @@ else if((filename = parser.args[0]))
 
 console.log(filename);
 
+/* check if file exists */
 if(fs.existsSync(filename))
 {
 	log.error('not ok','File already exists!');  //log.*('prefix', 'message');
 	process.exit();
 }
+
+/* create file */
+
+try{
+	fs.openSync(filename, 'w');
+	log.info('ok', 'File created.');
+}catch(e){
+	log.error('not ok', 'File created failed.');
+	process.exit();
+}
+
+/* temp: try write file */
+var htmlString = "<!DOCTYPE>\n"
+				+ "<html>\n"
+				+ "\t<head>\n"
+				+ "\t\t<title><title>\n"
+				+ "\t\t<script></script>\n"
+				+ "\t\t<link></link>\n"
+				+ "\t</head>\n"
+				+ "\t<body>\n"
+				+ "\t</body>\n"
+				+ "</html>\n";
+
+try{
+	fs.writeFileSync(filename, htmlString)
+	log.info('ok', 'File write completed!');
+	log.info('ok', 'Congratulation!');
+}
+catch(e){
+	log.error('not ok', e);
+}
+	
+
+process.exit();
