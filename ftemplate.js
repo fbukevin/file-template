@@ -7,20 +7,13 @@ var match = require('minimatch');
 var log = require('npmlog');
 var Context = require('./context');
 var create = new Context();
-//var colors = require('colors');
-//var prompt = require('prompt');
 
 program
 	.version('0.0.1')
-/*
-program
-	.command('')
-	.option()
-	.option()
-*/
-program
-	.usage('<filename>.<extension> [option]');
-
+	.usage('<filename>.<extension> [option]')
+	.option('--no-script','Create HTML without <script> tag')
+	.option('--no-link', 'Create HTML without <link> tag')
+	.option('--html4', 'Create HTML with old <!DOCTYPE> tag')
 
 /* create command parser */
 var parser = program.parse(process.argv);
@@ -48,7 +41,7 @@ else if((filename = parser.args[0]))
 	}
 }
 
-console.log(filename);
+log.info('input filename: ' + filename);
 
 /* check if file exists */
 if(fs.existsSync(filename))
@@ -59,14 +52,21 @@ if(fs.existsSync(filename))
 
 var fileExtension = path.extname(filename);
 var basename = path.basename(filename, fileExtension);	// avoid format '/**/filename'
-console.log(fileExtension);
-console.log(basename);
+var options = '';
+//console.log(fileExtension);
+//console.log(basename);
 
 var writeString;
 
 switch(fileExtension){
 	case '.html':
-		writeString = create.makeHTML(/*TODO: options*/);
+		if(!program.link)	// --no-link: program.link => false
+			options = '--no-link';
+		else if(!program.script)
+			options = '--no-script';
+		else if(program.html4)
+			options = '--html4';
+		writeString = create.makeHTML(options);
 		break;
 	case '.java':
 		// Java filename of main class is as same as class name
@@ -83,7 +83,6 @@ switch(fileExtension){
 		log.silly('sorry', 'File type not supported.');
 		process.exit();
 }
-console.log('1');
 
 /* create file */
 try{
@@ -95,7 +94,7 @@ try{
 }
 
 try{
-	fs.writeFileSync(filename, writeString)
+	fs.writeFileSync(filename, writeString);	
 	log.info('ok', 'File write completed!');
 	log.info('ok', 'Congratulation!');
 }
