@@ -81,5 +81,8 @@ Context.prototype = {
 Context.C = C;
 Context.CPP = CPP;
 
-module.exports = Context;
+
+window.create = new Context();	// for karma availability
+
+//module.exports = Context;		// in karma we don't need it
 

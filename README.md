@@ -60,26 +60,14 @@ Haha, this is not a hello world generator. Alright, `printf("");`, instead, is t
 
 * Create a Java file without class:
 
+#Test
+We use two test drivers with sinon and mocha libraries to launch test:
+1. mocha (recommend)
+	`mocha *_test.js` (這樣只會側同一目錄中的，下層目錄的不會進去，因此不會側到 karma 的)
+2. karma with mocha：說明基本上差異
+	`karma start chrome.conf.js` or `karma start firefox.conf.js`
+
 #Changelog
 
 #Contribution
 We are very welcome any feedback or new template provided. Please contact me with fbukevin@gmail.com. Or you can just clone this repository. Thanks in advanced. Hope you like this.
-
-
-\=============================
-
-python 和 node 都做吧！然後發佈至 pip 和 npm (先做 node)
-如果 pip 不適合安裝執行檔，python 的部份可以就發佈執行檔，不用 pip
-
-這種功能有兩種實作方式：
-1. 在程式中把 template format 寫好，產生新檔案並且寫入檔案		=> 只需要一個程式檔，但程式碼會越來越多
-2. 提供樣板檔案，用 cp => 程式包檔案會越來越多，程式主體比較小，不能夠只下載主程式執行檔(除非打包在一個執行檔)
-
-Name it "filetemplate" which is the short for "template"
-
-同一種檔案可以加不同參數
-例如 html 加入 -ns: no script tag, -nl: no link tag, -4: use html doctype below HTML5
-
-不需要輸入要產生的樣板程式語言，程式應該根據副檔名自己判斷就好，有一些附檔名應該被禁止，限定只能用英文加數字命名
-
-

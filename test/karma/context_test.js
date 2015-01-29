@@ -1,9 +1,5 @@
 
-var assert = require('chai').assert;	// assertion library
-var Context = require('../context');	// module to be test
-var create = new Context();				// instantiate module 
-
-var mockBasename = 'Test';	// replaced with sinon object?
+var mockBasename = 'Test';
 
 
 describe("HTML", function(){

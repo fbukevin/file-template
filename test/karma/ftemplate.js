@@ -10,7 +10,7 @@ var create = new Context();
 
 program
 	.version('0.0.1')
-	.usage('<filename>.<extension> [option]\n\n  Support langs: HTML, Java, C, C++')
+	.usage('<filename>.<extension> [option]')
 	.option('--no-script','Create HTML without <script> tag')
 	.option('--no-link', 'Create HTML without <link> tag')
 	.option('--html4', 'Create HTML with old <!DOCTYPE> tag')
@@ -80,7 +80,7 @@ switch(fileExtension){
 		writeString = Context.CPP;
 		break;
 	default:
-		log.error('sorry', 'File type not supported.');
+		log.silly('sorry', 'File type not supported.');
 		process.exit();
 }
 

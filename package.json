@@ -1,31 +1,44 @@
 {
-    "name": "file-template",
-    "descript": "Generate a template with file type.",
-    "versoin" : "0.0.1",
-    "keywords": ["file-template", "template"],
-    "author": {
-        "name" : "Veck Hsiao",
-        "email" : "fbukevin@gmail.com",
-        "url" : ""
-    },
-    "main": "ftemplate",   
-    "preferGlobal": "true",
-    "bin": {
-        "ftemplate" : "ftemplate.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/fbukevin/file-template.git"
-    },
-    "bugs": {
-        "url": "https://github.com/fbukevin/file-template/issues"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },    
-    "dependencies": {
-        "commander": "~2.1.0",
-        "minimatch": "~2.0.1",
-        "npmlog": "~1.0.0"
-    }
+  "name": "file-template",
+  "descript": "Generate a template with file type.",
+  "versoin": "0.0.1",
+  "keywords": [
+    "file-template",
+    "template"
+  ],
+  "author": {
+    "name": "Veck Hsiao",
+    "email": "fbukevin@gmail.com",
+    "url": ""
+  },
+  "main": "ftemplate",
+  "preferGlobal": "true",
+  "bin": {
+    "ftemplate": "ftemplate.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbukevin/file-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fbukevin/file-template/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "chai": "1.9.1",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-mocha": "^0.1.10",
+    "karma-sinon-chai": "0.2.0",
+    "mocha": "1.20.0",
+    "sinon": "1.12.2"
+  },
+  "dependencies": {
+    "commander": "~2.1.0",
+    "minimatch": "~2.0.1",
+    "npmlog": "~1.0.0"
+  }
 }
