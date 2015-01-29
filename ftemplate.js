@@ -3,6 +3,8 @@
 var fs = require('fs');
 var program = require('commander');
 var match = require('minimatch');
+var log = require('npmlog');
+
 //var colors = require('colors');
 //var prompt = require('prompt');
 
@@ -41,7 +43,12 @@ else if((filename = parser.args[0]))
 		program.outputHelp();
 		process.exit();
 	}
-
 }
 
 console.log(filename);
+
+if(fs.existsSync(filename))
+{
+	log.error('not ok','File already exists!');  //log.*('prefix', 'message');
+	process.exit();
+}
