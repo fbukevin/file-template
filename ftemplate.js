@@ -1,16 +1,13 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
+var path = require('path');
 var program = require('commander');
 var match = require('minimatch');
 var log = require('npmlog');
-
+var context = require('./context');
 //var colors = require('colors');
 //var prompt = require('prompt');
-
-//var htmlHandler = require('./html')
-//var javaHandler = require('./java')
-//var cHandler = require('./c')
 
 program
 	.version('0.0.1')
@@ -59,8 +56,33 @@ if(fs.existsSync(filename))
 	process.exit();
 }
 
-/* create file */
+var fileExtension = path.extname(filename);
+var basename = path.basename(filename, fileExtension);	// avoid format '/**/filename'
+console.log(fileExtension);
+console.log(basename);
 
+var writeString;
+
+switch(fileExtension){
+	case 'html':
+		writeString = context.HTML;
+		break;
+	case 'java':
+		writeString = makeJava(basename);	// Java filename of main class is as same as class name
+		break;
+	case 'c':
+		writeString = context.C;
+		break;
+	case 'cpp':
+	case 'cc':			
+		writeString = context.CPP;
+		break;
+	default:
+		log.silly('sorry', 'File type not supported.');
+		process.exit();
+}
+
+/* create file */
 try{
 	fs.openSync(filename, 'w');
 	log.info('ok', 'File created.');
@@ -69,26 +91,13 @@ try{
 	process.exit();
 }
 
-/* temp: try write file */
-var htmlString = "<!DOCTYPE>\n"
-				+ "<html>\n"
-				+ "\t<head>\n"
-				+ "\t\t<title><title>\n"
-				+ "\t\t<script></script>\n"
-				+ "\t\t<link></link>\n"
-				+ "\t</head>\n"
-				+ "\t<body>\n"
-				+ "\t</body>\n"
-				+ "</html>\n";
-
 try{
-	fs.writeFileSync(filename, htmlString)
+	fs.writeFileSync(filename, writeString)
 	log.info('ok', 'File write completed!');
 	log.info('ok', 'Congratulation!');
 }
 catch(e){
 	log.error('not ok', e);
 }
-	
 
 process.exit();

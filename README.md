@@ -27,12 +27,10 @@ Haha, this is not a hello world generator. Alright, `printf("");`, instead, is t
 * `--help`
 * create without
 	* `--no-script`: create without `<script>` tag
-	* `--no-link: create without `<link>` tag
-	* `--no-function`: create without function
-	* `--no-class`: create without class
+	* `--no-link`: create without `<link>` tag
 * create with
 	* `--with-form`: create with form (contains input text box and submit button)
-	* --with-string.h: create with string.h
+	* `--with-string.h`: create with string.h
 * with standard
 	* `-html4`: use html doctype before HTML5	
 
