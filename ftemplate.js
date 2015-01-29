@@ -5,7 +5,8 @@ var path = require('path');
 var program = require('commander');
 var match = require('minimatch');
 var log = require('npmlog');
-var context = require('./context');
+var Context = require('./context');
+var create = new Context();
 //var colors = require('colors');
 //var prompt = require('prompt');
 
@@ -64,23 +65,25 @@ console.log(basename);
 var writeString;
 
 switch(fileExtension){
-	case 'html':
-		writeString = context.HTML;
+	case '.html':
+		writeString = create.makeHTML(/*TODO: options*/);
 		break;
-	case 'java':
-		writeString = makeJava(basename);	// Java filename of main class is as same as class name
+	case '.java':
+		// Java filename of main class is as same as class name
+		writeString = create.makeJava(basename);
 		break;
-	case 'c':
-		writeString = context.C;
+	case '.c':
+		writeString = Context.C;
 		break;
-	case 'cpp':
-	case 'cc':			
-		writeString = context.CPP;
+	case '.cpp':
+	case '.cc':			
+		writeString = Context.CPP;
 		break;
 	default:
 		log.silly('sorry', 'File type not supported.');
 		process.exit();
 }
+console.log('1');
 
 /* create file */
 try{
