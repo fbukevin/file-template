@@ -11,10 +11,10 @@
     "email": "fbukevin@gmail.com",
     "url": ""
   },
-  "main": "ftemplate",
+  "main": "lib/ftemplate",
   "preferGlobal": "true",
   "bin": {
-    "ftemplate": "ftemplate.js"
+    "ftemplate": "lib/ftemplate.js"
   },
   "repository": {
     "type": "git",
