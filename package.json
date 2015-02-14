@@ -1,7 +1,7 @@
 {
   "name": "file-template",
   "descript": "Generate a template with file type.",
-  "versoin": "0.0.1",
+  "versoin": "0.0.2",
   "keywords": [
     "file-template",
     "template"

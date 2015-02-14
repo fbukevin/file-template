@@ -27,6 +27,7 @@ Current support programming languages:
 * Java
 * C
 * C++
+* C#
 
 ###Options:
 
@@ -89,6 +90,8 @@ We use two test drivers with Sinon and Mocha libraries to launch test, they shou
 	2. `karma start firefox.conf.js`
 
 #Changelog
+
+2015/02/14 Add C# context. (by larrywhy)
 
 #Contribution
 We are very welcome any feedback or new template provided. Please contact me with fbukevin@gmail.com. Or you can just clone this repository. Thanks for your courtesy. Hope you like this.
